@@ -44,14 +44,15 @@ function getManagerInfo() {
         .then(response => {
             let manager = new Manager(response.name, response.id, response.email, response.officeNumber)
             newTeam.push(manager)
-          }).then(response => {
+          })
+          .then(response => {
             fs.writeFile("manager.html", function(err) {
               if (err) {
                 return console.log(err);
               }
             })
           })
-
+        }
 function getEngineerInfo() {
     inquirer
         .prompt([
@@ -79,14 +80,15 @@ function getEngineerInfo() {
         .then(response => {
             let engineer = new Engineer(response.name, response.id, response.email, response.github)
             newTeam.push(engineer)
-          }).then(response => {
+          })
+          .then(response => {
             fs.writeFile("engineer.html", function(err) {
               if (err) {
                 return console.log(err);
               }
             })
           })
-
+        }
 
 function getInternInfo() {
     inquirer
@@ -121,8 +123,7 @@ function getInternInfo() {
                   }
                 })
               })
-
-
+            }
 
 function buildTeam() {
     let options = ["engineer", "intern", "exit"]
@@ -144,8 +145,8 @@ function buildTeam() {
     }
 };
 
-getManagerInfo() 
-buildTeam()
+getManagerInfo(); 
+buildTeam();
 
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
@@ -165,4 +166,4 @@ buildTeam()
 // and Intern classes should all extend from a class named Employee; see the directions
 // for further information. Be sure to test out each class and verify it generates an
 // object with the correct structure and methods. This structure will be crucial in order
-// for the provided `render` function to work! //
+// for the provided `render` function to work!
