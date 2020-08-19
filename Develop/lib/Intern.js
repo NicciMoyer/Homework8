@@ -1,6 +1,3 @@
-// TODO: Write code to define and export the Intern class.  HINT: This class should inherit from Employee.
-let inquirer = require("inquirer");
-const { getDiffieHellman } = require("crypto");
 const Employee = require("./Employee");
 
 class Intern extends Employee {
@@ -11,5 +8,9 @@ class Intern extends Employee {
     getSchool () {
         return this.school
     }
-
+    getRole() {
+        return "Intern"
+    }
 };
+
+module.exports = Intern
